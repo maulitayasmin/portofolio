@@ -666,6 +666,169 @@
           scroll-behavior: auto !important;
         }
       }
+      /* Pengalaman magang */
+      .exp {
+        display: grid;
+        gap: 18px;
+      }
+      .exp-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 4px 16px;
+        margin-bottom: 4px;
+      }
+      .exp-head h3 {
+        font-size: 1.1rem;
+        margin: 0;
+      }
+      .exp-head .when {
+        color: var(--accent2);
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+      .exp .org {
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+      .exp ul.pts {
+        margin: 0 0 16px;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+      .exp ul.pts li {
+        padding-left: 14px;
+        border-left: 2px solid var(--accent);
+        color: var(--muted);
+      }
+      .exp ul.pts b {
+        color: var(--text);
+        font-weight: 500;
+      }
+      .exp .lnk {
+        color: var(--accent);
+        font-weight: 500;
+        font-size: 0.93rem;
+      }
+      .exp .lnk:hover {
+        text-decoration: underline;
+      }
+
+      .cert-box {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px;
+        margin: 0 0 16px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(34, 211, 238, 0.04);
+        transition:
+          border-color 0.25s,
+          box-shadow 0.25s;
+      }
+      .cert-box:hover {
+        border-color: rgba(34, 211, 238, 0.5);
+        box-shadow: var(--glow);
+      }
+      .cert-box img {
+        width: 96px;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        flex-shrink: 0;
+      }
+      .cert-box .info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .cert-box .info b {
+        font-weight: 500;
+        color: var(--text);
+      }
+      .cert-box .info small {
+        color: var(--muted);
+      }
+      .cert-box .info em {
+        font-style: normal;
+        color: var(--accent);
+        font-size: 0.93rem;
+      }
+      @media (max-width: 480px) {
+        .cert-box img {
+          width: 72px;
+        }
+      }
+
+      /* Sertifikasi & pelatihan */
+      .certs {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      }
+      .cert {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .cert .kind {
+        font-size: 0.82rem;
+        color: var(--accent2);
+      }
+      .cert h3 {
+        font-size: 1.02rem;
+        margin: 0;
+      }
+      .cert .by {
+        color: var(--muted);
+        font-size: 0.93rem;
+        margin: 0;
+      }
+      .cert .lnk {
+        margin-top: auto;
+        padding-top: 10px;
+        color: var(--accent);
+        font-weight: 500;
+        font-size: 0.93rem;
+      }
+      .cert .lnk:hover {
+        text-decoration: underline;
+      }
+
+      .cert .pic {
+        display: block;
+        overflow: hidden;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        margin-bottom: 8px;
+      }
+      .cert .pic img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.4s;
+      }
+      .cert .pic:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Nav: 7 menu perlu turun baris di layar kecil */
+      @media (max-width: 640px) {
+        nav {
+          height: auto;
+          padding: 10px 0;
+        }
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 6px 16px;
+        }
+      }
     </style>
     <script>
       document.documentElement.classList.add("js");
@@ -679,9 +842,11 @@
           <a class="logo" href="#top">maulita<span>.dev</span></a>
           <ul>
             <li><a href="#tentang">Tentang</a></li>
-            <li><a href="#volunteer">Volunteer</a></li>
+            <li><a href="#magang">Magang</a></li>
             <li><a href="#stack">Tech stack</a></li>
+            <li><a href="#sertifikasi">Sertifikasi</a></li>
             <li><a href="#proyek">Proyek</a></li>
+            <li><a href="#volunteer">Volunteer</a></li>
             <li><a href="#kontak">Kontak</a></li>
           </ul>
         </nav>
@@ -763,6 +928,116 @@
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="magang">
+        <div class="wrap">
+          <h2>Pengalaman magang</h2>
+          <p class="lead">
+            Satu tahun magang di dua perusahaan: pengembangan web dan otomasi
+            data operasional.
+          </p>
+
+          <div class="exp">
+            <article class="card">
+              <div class="exp-head">
+                <h3>SDI (Survey, Drawing, dan Inventory)</h3>
+                <span class="when">Jul 2025 - Des 2025</span>
+              </div>
+              <p class="org">PT Telkom Akses Malang</p>
+              <ul class="pts">
+                <li>
+                  Mengembangkan <b>Bot Telegram berbasis Python</b> dan
+                  dashboard pemantauan. Pencarian dan pengecekan data tiket
+                  turun dari sekitar 5-10 menit menjadi
+                  <b>kurang dari 1 menit</b> (berdasarkan 580 data Provi Tur,
+                  Agustus-Desember 2025).
+                </li>
+                <li>
+                  Mengelola rata-rata <b>200 data survei ODP per hari</b> dan
+                  data QR Code pada sekitar <b>5.000 STO</b> agar data lapangan
+                  akurat dan lengkap bagi tim operasional.
+                </li>
+                <li>
+                  Pengolahan, pembaruan, dan troubleshooting data secara berkala
+                  untuk menjaga keandalan sistem operasional.
+                </li>
+              </ul>
+              <a
+                class="cert-box"
+                href="images/sertif-telkom.jpg"
+                target="_blank"
+                rel="noopener">
+                <img
+                  src="images/sertif-telkom.jpg"
+                  alt="Sertifikat magang PT Telkom Akses Malang"
+                  loading="lazy" />
+                <span class="info">
+                  <b>Sertifikat Magang</b>
+                  <small>PT Telkom Akses Malang · 2025</small>
+                  <em>Lihat sertifikat</em>
+                </span>
+              </a>
+              <a
+                class="lnk"
+                href="https://github.com/maulitayasmin/bot_cek_status_paket.git"
+                target="_blank"
+                rel="noopener"
+                >Lihat di GitHub</a
+              >
+            </article>
+
+            <article class="card">
+              <div class="exp-head">
+                <h3>Web Developer Intern</h3>
+                <span class="when">Jan 2025 - Jun 2025</span>
+              </div>
+              <p class="org">PT Elecomp Indonesia Group</p>
+              <ul class="pts">
+                <li>
+                  Mengembangkan website
+                  <b>company profile berbasis CodeIgniter 4</b> yang responsif
+                  dan mudah diperbarui lewat sistem web.
+                </li>
+                <li>
+                  Membangun fitur <b>CRUD</b> untuk 5 data hosting dan 30
+                  peserta magang. Waktu pencarian data peserta turun dari 5
+                  menit menjadi <b>kurang dari 1 menit</b>.
+                </li>
+                <li>
+                  Membuat <b>fitur piket</b> untuk penjadwalan tugas harian 30
+                  peserta magang, menggantikan penjadwalan manual.
+                </li>
+                <li>
+                  Pengujian, debugging, dan perbaikan fitur sampai aplikasi
+                  stabil dan mendukung digitalisasi proses internal.
+                </li>
+              </ul>
+              <a
+                class="cert-box"
+                href="images/sertif-elecomp.jpg"
+                target="_blank"
+                rel="noopener">
+                <img
+                  src="images/sertif-elecomp.jpg"
+                  alt="Sertifikat magang PT Elecomp Indonesia Group"
+                  loading="lazy" />
+                <span class="info">
+                  <b>Sertifikat Magang</b>
+                  <small>PT Elecomp Indonesia Group · 2025</small>
+                  <em>Lihat sertifikat</em>
+                </span>
+              </a>
+              <a
+                class="lnk"
+                href="https://github.com/putriayualc/internalElecomp.git"
+                target="_blank"
+                rel="noopener"
+                >Lihat di GitHub</a
+              >
+            </article>
           </div>
         </div>
       </section>
@@ -849,6 +1124,179 @@
         </div>
       </section>
 
+      <section id="sertifikasi">
+        <div class="wrap">
+          <h2>Sertifikasi &amp; Pelatihan</h2>
+          <p class="lead">
+            Sertifikat dan pelatihan yang mendukung keahlian saya di web
+            development.
+          </p>
+
+          <div class="grid certs">
+            <article class="card cert">
+              <a
+                class="pic"
+                href="https://drive.google.com/file/d/16FYkcybSfjU_m1RKZcReTel-4dMucqPQ/view?usp=drive_link"
+                target="_blank"
+                rel="noopener">
+                <img
+                  src="images/bnsp.png"
+                  alt="Aplikasi Pembuatan Mobile Berbasis Database"
+                  loading="lazy" />
+              </a>
+              <span class="kind">Sertifikasi</span>
+              <h3>Aplikasi Pembuatan Mobile Berbasis Database</h3>
+              <p class="by">BNSP · 2026</p>
+              <a
+                class="lnk"
+                href="file/sertifikasi mobile.pdf"
+                target="_blank"
+                rel="noopener"
+                >Lihat sertifikat</a
+              >
+            </article>
+
+            <article class="card cert">
+              <a
+                class="pic"
+                href="https://drive.google.com/file/d/16FYkcybSfjU_m1RKZcReTel-4dMucqPQ/view?usp=drive_link"
+                target="_blank"
+                rel="noopener">
+                <img
+                  src="images/sertif-revou.png"
+                  alt="Pelatihan Coding Camp Software Engineering RevoU"
+                  loading="lazy" />
+              </a>
+              <span class="kind">Pelatihan</span>
+              <h3>Coding Camp Software Engineering</h3>
+              <p class="by">RevoU · 2026</p>
+              <a
+                class="lnk"
+                href="https://drive.google.com/file/d/16FYkcybSfjU_m1RKZcReTel-4dMucqPQ/view?usp=drive_link"
+                target="_blank"
+                rel="noopener"
+                >Lihat sertifikat</a
+              >
+            </article>
+
+            <article class="card cert">
+              <a
+                class="pic"
+                href="https://drive.google.com/file/d/1RKf5EFYxPiQyD2aV-K9jTJrzDmT0Sy-9/view?usp=drive_link"
+                target="_blank"
+                rel="noopener">
+                <img
+                  src="images/sertif-hackerrank-sql.jpg"
+                  alt="Pelatihan SQL (Basic)"
+                  loading="lazy" />
+              </a>
+              <span class="kind">Pelatihan</span>
+              <h3>Pelatihan SQL (Basic)</h3>
+              <p class="by">HackerRank · 2023</p>
+              <a
+                class="lnk"
+                href="https://drive.google.com/file/d/1RKf5EFYxPiQyD2aV-K9jTJrzDmT0Sy-9/view?usp=drive_link"
+                target="_blank"
+                rel="noopener"
+                >Lihat sertifikat</a
+              >
+            </article>
+
+            <article class="card cert">
+              <a
+                class="pic"
+                href="https://drive.google.com/file/d/1ADFbvDdPszXD1v9aCTGgvQxhMUTvYxMT/view?usp=drive_link"
+                target="_blank"
+                rel="noopener">
+                <img
+                  src="images/sertif-hackerrank-frontend.jpg"
+                  alt="Pelatihan Frontend Developer (React)"
+                  loading="lazy" />
+              </a>
+              <span class="kind">Pelatihan</span>
+              <h3>Pelatihan Frontend Developer (React)</h3>
+              <p class="by">HackerRank · 2025</p>
+              <a
+                class="lnk"
+                href="https://drive.google.com/file/d/1ADFbvDdPszXD1v9aCTGgvQxhMUTvYxMT/view?usp=drive_link"
+                target="_blank"
+                rel="noopener"
+                >Lihat sertifikat</a
+              >
+            </article>
+
+            <article class="card cert">
+              <a
+                class="pic"
+                href="https://drive.google.com/file/d/1JsKAUl_AKuEXvQW-elOkf7a8dkALjnya/view?usp=drive_link"
+                target="_blank"
+                rel="noopener">
+                <img
+                  src="images/sertif-dqlab-data-analyst.jpg"
+                  alt="Mini Bootcamp : Introduction to Data Analytics Batch 3"
+                  loading="lazy" />
+              </a>
+              <span class="kind">Pelatihan</span>
+              <h3>Mini Bootcamp : Introduction to Data Analytics Batch 3</h3>
+              <p class="by">DQLab · 2024</p>
+              <a
+                class="lnk"
+                href="https://drive.google.com/file/d/1JsKAUl_AKuEXvQW-elOkf7a8dkALjnya/view?usp=drive_link"
+                target="_blank"
+                rel="noopener"
+                >Lihat sertifikat</a
+              >
+            </article>
+
+            <article class="card cert">
+              <a
+                class="pic"
+                href="https://drive.google.com/file/d/1ObyCl5OpL1PBNEWqKRjS9o_Z9kjKXD11/view?usp=drive_link"
+                target="_blank"
+                rel="noopener">
+                <img
+                  src="images/sertif-dqlab-data-analyst-python.jpg"
+                  alt="Study Case Bootcamp Data Analyst with SQL & Python"
+                  loading="lazy" />
+              </a>
+              <span class="kind">Pelatihan</span>
+              <h3>Study Case Bootcamp Data Analyst with SQL & Python</h3>
+              <p class="by">DQLab · 2024</p>
+              <a
+                class="lnk"
+                href="https://drive.google.com/file/d/1ObyCl5OpL1PBNEWqKRjS9o_Z9kjKXD11/view?usp=drive_link"
+                target="_blank"
+                rel="noopener"
+                >Lihat sertifikat</a
+              >
+            </article>
+
+            <article class="card cert">
+              <a
+                class="pic"
+                href="https://drive.google.com/file/d/1uUzbOjDFmcCwFR5AFqXQ8lMXuGwaTzsZ/view?usp=drive_link"
+                target="_blank"
+                rel="noopener">
+                <img
+                  src="images/sertif-dqlab-data-analyst-python.jpg"
+                  alt="Study Case Bootcamp Data Analyst with Excel"
+                  loading="lazy" />
+              </a>
+              <span class="kind">Pelatihan</span>
+              <h3>Study Case Bootcamp Data Analyst with Excel</h3>
+              <p class="by">DQLab · 2024</p>
+              <a
+                class="lnk"
+                href="https://drive.google.com/file/d/1uUzbOjDFmcCwFR5AFqXQ8lMXuGwaTzsZ/view?usp=drive_link"
+                target="_blank"
+                rel="noopener"
+                >Lihat sertifikat</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="proyek">
         <div class="wrap">
           <h2>Proyek pilihan</h2>
@@ -890,6 +1338,7 @@
         db: '<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.300 8-3V6M4 12c0 1.700 3.600 3 8 3s8-1.300 8-3"/>',
         bot: '<rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01"/>',
         git: '<circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 8v8M8 6h4a4 4 0 014 4v0"/>',
+        atom: '<circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="3.8" transform="rotate(120 12 12)"/>',
       };
       const T = [
         ["PHP", "prog", "code", "#a78bfa"],
@@ -899,6 +1348,7 @@
         ["Python", "prog", "code", "#60a5fa"],
         ["CodeIgniter 4", "fw", "box", "#f87171"],
         ["Laravel", "fw", "box", "#ef4444"],
+        ["React.js", "fw", "atom", "#61dafb"],
         ["Flutter", "fw", "phone", "#22d3ee"],
         ["Filament", "fw", "layers", "#fbbf24"],
         ["HTML", "web", "code", "#fb923c"],
